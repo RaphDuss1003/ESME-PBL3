@@ -5,14 +5,14 @@ import heapq
 TRANSFER_TIME = 120
 
 
-# =============================================================
-# BFS - Breadth First Search
-# from the course: uses white/grey/black colors + a queue (FIFO)
-# finds the path with the fewest stops (ignores travel time)
-# =============================================================
+# ======================================== Search algorithms ========================================
 
 def bfs(graph, start, end):
-
+    """
+    BFS - Breadth First Search algorithm
+    from the course: uses white/grey/black colors + a queue (FIFO)
+    finds the path with the fewest stops (ignores travel time)
+    """
     # initialize all stations as unvisited (white)
     color = dict()
     for station in graph:
@@ -37,15 +37,12 @@ def bfs(graph, start, end):
 
     return None  # no path found
 
-
-# =============================================================
-# DFS - Depth First Search
-# from the course: uses white/grey/black colors + a stack (LIFO)
-# explores one full branch before trying another
-# =============================================================
-
 def dfs(graph, start, end):
-
+    """
+    DFS - Depth First Search algorithm
+    from the course: uses white/grey/black colors + a stack (LIFO)
+    explores one full branch before trying another
+    """ 
     # initialize all stations as unvisited (white)
     color = dict()
     for station in graph:
@@ -82,15 +79,13 @@ def dfs(graph, start, end):
     return None  # no path found
 
 
-# =============================================================
-# DIJKSTRA
-# from the course: always picks the nearest unvisited vertex
-# adds TRANSFER_TIME (120s) when switching lines
-# uses a priority queue (heap) to always pop the smallest cost
-# =============================================================
-
 def dijkstra(graph, start, end):
-
+    """
+    DIJKSTRA algorithm for shortest path in a weighted graph
+    from the course: always picks the nearest unvisited vertex
+    adds TRANSFER_TIME (120s) when switching lines
+    uses a priority queue (heap) to always pop the smallest cost
+    """
     if start not in graph or end not in graph:
         return None, None
 
@@ -136,12 +131,12 @@ def dijkstra(graph, start, end):
     return None, None  # no path found
 
 
-# =============================================================
-# DISPLAY - prints the route in a readable way
-# =============================================================
+# ======================================== DISPLAY ========================================
 
 def format_route(steps, total_time):
-
+    """
+    Prints the route taken in a readable way
+    """
     if steps is None:
         print("No route found.")
         return
@@ -168,13 +163,10 @@ def format_route(steps, total_time):
     print("-" * 45 + "\n")
 
 
-# =============================================================
-# CONNECTIVITY CHECK
-# uses BFS from one station to verify the whole network is reachable
-# =============================================================
+# ======================================== CONNECTIVITY CHECK ========================================
 
 def is_connected(graph):
-
+    """Check if the graph is fully connected using BFS."""
     if not graph:
         return True
 
@@ -200,13 +192,11 @@ def is_connected(graph):
     return all(c == 'black' for c in color.values())
 
 
-# =============================================================
-# TRANSFER STATIONS
-# stations served by more than one line
-# =============================================================
+# ======================================== TRANSFER STATIONS ========================================
+
 
 def find_transfer_stations(graph):
-
+    """Identify stations that serve multiple lines, which are potential transfer points."""
     transfers = {}
 
     for station, neighbors in graph.items():

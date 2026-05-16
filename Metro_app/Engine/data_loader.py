@@ -6,7 +6,10 @@ from graph import Graph
 # ===================================================== HELPERS =====================================================
 
 def _list_available_cities(data_dir):
-    """Return a list of city names available as JSON files in the given directory."""
+    """
+    Return a list of city names available as JSON files in the given directory.
+    Private helper function for list_cities().
+    """
 
     if not os.path.isdir(data_dir):
         print(f"Error: directory not found: {data_dir}")
@@ -21,7 +24,10 @@ def _list_available_cities(data_dir):
 
 
 def _build_filepath(data_dir, city_name):
-    """Return the expected JSON filepath for a given city name."""
+    """
+    Return the expected JSON filepath for a given city name.
+    Private helper function for load_city() and detect_and_load().
+    """
     return os.path.join(data_dir, f"{city_name}.json")
 
 # ===================================================== LOADERS =====================================================
@@ -30,12 +36,13 @@ def load_network(filepath):
     """
     Read a transit network JSON file and return a raw dictionary with the network data.
     Returns the parsed dictionary, or None if the file cannot be read or is malformed.
+    Use of extensions to handle wrong file paths, invalid JSON.
     """
     if not os.path.exists(filepath):
         print(f"Error: file not found: {filepath}")
         return None
 
-    with open(filepath, encoding="utf-8") as f:
+    with open(filepath, encoding="utf-8") as f:  
         try:
             data = json.load(f)
         except json.JSONDecodeError as e:
@@ -59,8 +66,7 @@ def load_network(filepath):
 
 def load_city(city_name, data_dir="data"):
     """
-    Load the transit network of a given city by name, looking for
-    <data_dir>/<city_name>.json.
+    Load the transit network of a given city by name.
 
     Returns the raw network dictionary, or None on failure.
     """
@@ -70,8 +76,7 @@ def load_city(city_name, data_dir="data"):
 
 def detect_and_load(city_name_or_path, data_dir="data"):
     """
-    Accept either a city name (e.g. "paris") or a direct file path
-    (e.g. "data/paris.json") and loads the corresponding network.
+    Accept either a city name or a direct file path and loads the corresponding network.
 
     Returns:
         ("network", raw_dict)   on success.
@@ -112,13 +117,13 @@ def build_graph(data):
     lines      = data["lignes"]
     connexions = data.get("connexions", [])
 
-    # --- 1. Add in-line edges ---------------------------------------------------
+    # --------------------- Add in-line edges ---------------------
 
     if connexions:
-        # Explicit connexions list provided (e.g. mini_reseau.json)
+        # Explicit connexions list provided 
         for conn in connexions:
-            src  = f"{conn['de']}|{conn['ligne']}"
-            dst  = f"{conn['vers']}|{conn['ligne']}"
+            src  = f"{conn['de']}|{conn['ligne']}"    # source node
+            dst  = f"{conn['vers']}|{conn['ligne']}"  # destination node
             time = conn.get("temps", avg_time)
             graph.add_edge(src, dst, time)
     else:
@@ -131,7 +136,7 @@ def build_graph(data):
                 graph.add_edge(src, dst, avg_time)
                 graph.add_edge(dst, src, avg_time)   # bidirectional
 
-    # --- 2. Add transfer edges (correspondances) --------------------------------
+    # --------------------- Add transfer edges (correspondances) ---------------------
 
     for transfer in data["correspondances"]:
         station      = transfer["station"]
@@ -177,7 +182,7 @@ def load_city_into_graph(city_name, data_dir="data"):
         return None, None
     graph = build_graph(data)
     return graph, data
-
+    
 
 # ===================================================== DISPLAY =====================================================
 
