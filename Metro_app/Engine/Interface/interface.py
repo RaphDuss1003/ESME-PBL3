@@ -15,21 +15,21 @@ class Interface(QWidget):
 
         # ==================== LEFT PANEL ====================
 
-        # --- Combo 1 ---
+        # --- Combo 1 : City ---
         self.combo1 = QComboBox()
         self.combo1.addItem("Select your city")  # placeholder
         self.combo1.addItems(["Paris", "Bordeaux", "Lille", "Lyon"])
         self.combo1.setCurrentIndex(0)
         self.combo1.setMinimumHeight(50)
 
-        # --- Combo 2 ---
+        # --- Combo 2 : Departure ---
         self.combo2 = QComboBox()
         self.combo2.addItem("Select departure")  # placeholder
         self.combo2.addItems(["A", "B", "C"])
         self.combo2.setCurrentIndex(0)
         self.combo2.setMinimumHeight(50)
 
-        # --- Combo 3 ---
+        # --- Combo 3 : Arrival ---
         self.combo3 = QComboBox()
         self.combo3.addItem("Select arrival")  # placeholder
         self.combo3.addItems(["A", "B", "C"])
