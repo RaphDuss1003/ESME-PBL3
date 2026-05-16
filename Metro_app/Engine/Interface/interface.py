@@ -10,7 +10,7 @@ class Interface(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Simple UI")
+        self.setWindowTitle("Maps")
         self.setFixedSize(1400, 900)
 
         # ==================== LEFT PANEL ====================
