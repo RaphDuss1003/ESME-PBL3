@@ -1,8 +1,4 @@
 def format_time(seconds):
-    """
-    Convert a number of seconds into a readable format.
-    """
-
     if seconds is None:
         return "unknown time"
 
@@ -26,138 +22,149 @@ def format_time(seconds):
     return f"{minutes} minutes {remaining_seconds} seconds"
 
 
-def is_valid_path(path):
-    """
-    Check if the path has the correct format.
+def split_station_and_line(value):
+    if not isinstance(value, str):
+        return value, None
 
-    A valid path must be a list of dictionaries.
-    Each dictionary must contain:
-    - "station"
-    - "line"
-    """
+    if "|" in value:
+        station, line = value.rsplit("|", 1)  # split from the right to separate station and line
+        return station, line
 
-    if not isinstance(path, list):
+    return value, None
+
+
+def normalize_step(step, next_step=None):
+    if not isinstance(step, dict):
+        return None
+
+    station = step.get("station")
+    line = step.get("line")
+    action = step.get("action")
+
+    station_name, line_from_station = split_station_and_line(station)
+
+    if line is None:
+        line = line_from_station  # use the line stored inside "Station|Line"
+
+    if line is None and next_step is not None and isinstance(next_step, dict):
+        next_line = next_step.get("line")
+        next_station = next_step.get("station")
+
+        if next_line is None:
+            _, next_line = split_station_and_line(next_station)  # infer line from next station
+
+        line = next_line  # first board step usually needs this
+
+    return {
+        "station": station_name,
+        "line": line,
+        "action": action
+    }
+
+
+def is_valid_steps(steps):
+    if steps is None:
         return False
 
-    if len(path) == 0:
-        return True
+    if not isinstance(steps, list):
+        return False
 
-    for step in path:
+    for step in steps:
         if not isinstance(step, dict):
             return False
 
-        if "station" not in step or "line" not in step:
-            return False
-
-        if not isinstance(step["station"], str):
-            return False
-
-        if not isinstance(step["line"], str):
+        if "station" not in step:
             return False
 
     return True
 
 
-def create_itinerary_steps(path):
-    """
-    Convert a calculated path into readable itinerary instructions.
-
-    Example output:
-    [
-        "Board at Argentine station, line 1",
-        "Continue through Charles de Gaulle - Étoile station",
-        "Transfer at Charles de Gaulle - Étoile station, take line 2",
-        "Continue through Ternes station",
-        "Alight at Monceau station, line 2"
-    ]
-    """
-
-    steps = []
-
-    if not is_valid_path(path):
-        return ["Invalid path format."]
-
-    if len(path) == 0:
+def create_itinerary_steps(steps):
+    if not is_valid_steps(steps):
         return ["No route found."]
 
-    if len(path) == 1:
-        station = path[0]["station"]
-        line = path[0]["line"]
+    if len(steps) == 0:
+        return ["No route found."]
+
+    if len(steps) == 1:
+        only_step = normalize_step(steps[0])
+        station = only_step["station"]
+        line = only_step["line"]
+
+        if line is None:
+            return [f"You are already at {station} station."]
         return [f"You are already at {station} station, line {line}."]
 
-    start_station = path[0]["station"]
-    start_line = path[0]["line"]
+    itinerary = []
 
-    end_station = path[-1]["station"]
-    end_line = path[-1]["line"]
+    for i in range(len(steps)):
+        current = steps[i]
+        next_step = steps[i + 1] if i + 1 < len(steps) else None  # avoid index error at the end
 
-    steps.append(f"Board at {start_station} station, line {start_line}")
+        clean_step = normalize_step(current, next_step)
 
-    previous_station = path[0]["station"]
-    previous_line = path[0]["line"]
+        station = clean_step["station"]
+        line = clean_step["line"]
+        action = clean_step["action"]
 
-    for i in range(1, len(path)):
-        current_station = path[i]["station"]
-        current_line = path[i]["line"]
+        if action == "board":
+            if line is None:
+                itinerary.append(f"Board at {station} station")
+            else:
+                itinerary.append(f"Board at {station} station, line {line}")
 
-        is_last_station = i == len(path) - 1
+        elif action == "continue":
+            itinerary.append(f"Continue through {station} station")
 
-        if current_station == previous_station and current_line != previous_line:
-            steps.append(
-                f"Transfer at {current_station} station, take line {current_line}"
-            )
+        elif action == "transfer":
+            if line is None:
+                itinerary.append(f"Transfer at {station} station")
+            else:
+                itinerary.append(f"Transfer at {station} station, take line {line}")
 
-        elif not is_last_station:
-            steps.append(f"Continue through {current_station} station")
+        elif action == "alight":
+            if line is None:
+                itinerary.append(f"Alight at {station} station")
+            else:
+                itinerary.append(f"Alight at {station} station, line {line}")
 
-        previous_station = current_station
-        previous_line = current_line
+        else:
+            if i == 0:
+                itinerary.append(f"Board at {station} station, line {line}")
+            elif i == len(steps) - 1:
+                itinerary.append(f"Alight at {station} station, line {line}")
+            else:
+                itinerary.append(f"Continue through {station} station")
 
-    steps.append(f"Alight at {end_station} station, line {end_line}")
-
-    return steps
+    return itinerary
 
 
-def display_itinerary(path, total_time):
-    """
-    Display the itinerary in the console.
-
-    Parameters:
-    - path: list of dictionaries with station and line
-    - total_time: total travel time in seconds
-    """
-
-    steps = create_itinerary_steps(path)
+def display_itinerary(steps, total_time):
+    itinerary = create_itinerary_steps(steps)
 
     print()
     print("========== ITINERARY ==========")
 
-    for step in steps:
-        print(step)
+    for instruction in itinerary:
+        print(instruction)
 
-    if is_valid_path(path) and len(path) > 1:
+    if is_valid_steps(steps) and len(steps) > 1:
         print(f"Estimated total time: {format_time(total_time)}")
 
     print("===============================")
     print()
 
 
-def get_itinerary_as_text(path, total_time):
-    """
-    Return the itinerary as a string instead of printing it.
+def get_itinerary_as_text(steps, total_time):
+    itinerary = create_itinerary_steps(steps)
 
-    This can be useful for the interface module.
-    """
-
-    steps = create_itinerary_steps(path)
     result = []
-
     result.append("========== ITINERARY ==========")
 
-    for step in steps:
-        result.append(step)
+    for instruction in itinerary:
+        result.append(instruction)
 
-    if is_valid_path(path) and len(path) > 1:
+    if is_valid_steps(steps) and len(steps) > 1:
         result.append(f"Estimated total time: {format_time(total_time)}")
 
     result.append("===============================")
@@ -166,22 +173,17 @@ def get_itinerary_as_text(path, total_time):
 
 
 def test_itinerary():
-    """
-    Test function using the example from the project subject.
-    """
-
-    test_path = [
-        {"station": "Argentine", "line": "1"},
-        {"station": "Charles de Gaulle - Étoile", "line": "1"},
-        {"station": "Charles de Gaulle - Étoile", "line": "2"},
-        {"station": "Ternes", "line": "2"},
-        {"station": "Courcelles", "line": "2"},
-        {"station": "Monceau", "line": "2"},
+    test_steps = [
+        {"station": "Argentine", "line": None, "action": "board"},
+        {"station": "Charles de Gaulle - Étoile", "line": "1", "action": "continue"},
+        {"station": "Charles de Gaulle - Étoile", "line": "2", "action": "transfer"},
+        {"station": "Ternes", "line": "2", "action": "continue"},
+        {"station": "Courcelles", "line": "2", "action": "continue"},
+        {"station": "Monceau", "line": "2", "action": "alight"},
     ]
 
     test_time = 570
-
-    display_itinerary(test_path, test_time)
+    display_itinerary(test_steps, test_time)
 
 
 if __name__ == "__main__":
