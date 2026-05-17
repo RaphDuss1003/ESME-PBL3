@@ -1,9 +1,16 @@
 from PyQt5.QtWidgets import (
     QWidget, QComboBox, QVBoxLayout, QHBoxLayout,
-    QGroupBox, QPlainTextEdit, QLabel, QPushButton, QApplication
+    QGroupBox, QLabel, QPushButton, QApplication
 )
-from PyQt5.QtCore import Qt
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtCore import Qt, QUrl
 import sys
+from pathlib import Path
+
+# Add project root to import path and import the single visualizer file
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT))
+from visualize_metro import MetroMapVisualizer, get_available_cities
 
 
 class Interface(QWidget):
@@ -17,8 +24,11 @@ class Interface(QWidget):
 
         # --- Combo 1 : City ---
         self.combo1 = QComboBox()
-        self.combo1.addItem("Select your city")  # placeholder
-        self.combo1.addItems(["Paris", "Bordeaux", "Lille", "Lyon"])
+        self.combo1.addItem("Select your city", None)  # placeholder
+
+        for city_code, city_name in get_available_cities():
+            self.combo1.addItem(city_name, city_code)
+
         self.combo1.setCurrentIndex(0)
         self.combo1.setMinimumHeight(50)
 
@@ -75,21 +85,46 @@ class Interface(QWidget):
 
         # ==================== RIGHT PANEL ====================
 
-        self.right_area = QPlainTextEdit()
-        self.right_area.setPlaceholderText("Grand espace à droite…")            # Mettre ici le truc de damien
-        self.right_area.setStyleSheet("font-size: 20px;")
+        self.web_view = QWebEngineView()
+        self.web_view.setHtml('<h2 style="font-family: sans-serif; padding: 20px;">Select a city to display the metro map.</h2>')
 
         # ==================== MAIN LAYOUT ====================
 
         main_layout = QHBoxLayout()
         main_layout.setSpacing(40)
         main_layout.addWidget(left_group)
-        main_layout.addWidget(self.right_area)
+        main_layout.addWidget(self.web_view)
 
         self.setLayout(main_layout)
 
+        self.combo1.currentIndexChanged.connect(self.on_city_changed)
 
-        self.setStyleSheet(open("Metro_app/Engine/Interface/style.qss").read())         # Load the QSS file
+        style_path = Path(__file__).resolve().parent / "style.qss"
+        if style_path.exists():
+            self.setStyleSheet(style_path.read_text(encoding='utf-8'))
+
+    def on_city_changed(self, index):
+        if index == 0:
+            return
+        city_code = self.combo1.currentData()
+        if not city_code:
+            return
+        self.load_city_map(city_code)
+
+    def load_city_map(self, city_code: str):
+        data_path = Path(__file__).resolve().parents[2] / 'Data files' / f'{city_code}.json'
+        if not data_path.exists():
+            self.web_view.setHtml(f'<h2>Data file not found: {city_code}.json</h2>')
+            return
+
+        try:
+            visualizer = MetroMapVisualizer(str(data_path), city_code=city_code)
+            visualizer.create_map(zoom_start=12)
+            html = visualizer.render_html()
+            base_url = QUrl.fromLocalFile(str(data_path.parent) + '/')
+            self.web_view.setHtml(html, base_url)
+        except Exception as exc:
+            self.web_view.setHtml(f'<h2>Error loading map:</h2><pre>{exc}</pre>')
 
 
 if __name__ == "__main__":

@@ -5,37 +5,59 @@
       "nom": "Métro Ligne 1",
       "couleur": "jaune",
       "stations": [
-        "4 Cantons - Stade Pierre Mauroy", "Cité Scientifique - Professeur Gabillard",
-        "Triolo", "Villeneuve-d'Ascq - Hôtel de Ville",
-        "Pont de Bois", "Lezennes",
-        "Hellemmes", "Mairie de Lille - Lille Grand Palais",
-        "Fives", "Caulier",
-        "Gare Lille Flandres", "Rihour",
-        "République - Beaux-Arts", "Gambetta",
-        "Wazemmes", "Porte des Postes",
-        "CHR Oscar Lambret", "CHR B-Calmette"
+        "4 Cantons - Stade Pierre Mauroy",
+        "Cité Scientifique - Professeur Gabillard",
+        "Triolo",
+        "Villeneuve-d'Ascq - Hôtel de Ville",
+        "Pont de Bois",
+        "Lezennes",
+        "Hellemmes",
+        "Mairie de Lille - Lille Grand Palais",
+        "Fives",
+        "Caulier",
+        "Gare Lille Flandres",
+        "Rihour",
+        "République - Beaux-Arts",
+        "Gambetta",
+        "Wazemmes",
+        "Porte des Postes",
+        "CHR Oscar Lambret",
+        "CHR B-Calmette"
       ]
     },
     "2": {
       "nom": "Métro Ligne 2",
       "couleur": "rouge",
       "stations": [
-        "Saint-Philibert", "Bourg",
-        "Maison des Enfants", "Porte de Douai",
-        "Porte d'Arras", "Porte de Valenciennes",
-        "Lille Grand Palais", "Mairie de Lille",
-        "Gare Lille Flandres", "Gare Lille Europe",
+        "Saint-Philibert",
+        "Bourg",
+        "Maison des Enfants",
+        "Porte de Douai",
+        "Porte d'Arras",
+        "Porte de Valenciennes",
+        "Lille Grand Palais",
+        "Mairie de Lille",
+        "Gare Lille Flandres",
+        "Gare Lille Europe",
         "Saint-Maurice Pellevoisin",
-        "Mons Sarts", "Fort de Mons",
-        "Les Prés - Edgard Pisani", "Jean Jaurès",
+        "Mons Sarts",
+        "Fort de Mons",
+        "Les Prés - Edgard Pisani",
+        "Jean Jaurès",
         "Wasquehal - Hôtel de Ville",
-        "Pavé de Lille", "Croix - Mairie",
-        "Croix Centre", "Épeule - Montesquieu",
-        "Roubaix - Grand Place", "Roubaix - Eurotéléport",
+        "Pavé de Lille",
+        "Croix - Mairie",
+        "Croix Centre",
+        "Épeule - Montesquieu",
+        "Roubaix - Grand Place",
+        "Roubaix - Eurotéléport",
         "Roubaix - Charles de Gaulle",
-        "Alsace", "Gare Jean Lebas",
-        "Tourcoing - Sébastopol", "Tourcoing Centre",
-        "Colbert", "Pont de Neuville",
+        "Alsace",
+        "Gare Jean Lebas",
+        "Tourcoing - Sébastopol",
+        "Tourcoing Centre",
+        "Colbert",
+        "Pont de Neuville",
         "CH Dron"
       ]
     },
@@ -43,16 +65,26 @@
       "nom": "Tramway T",
       "couleur": "vert",
       "stations": [
-        "Gare Lille Flandres", "Rihour",
-        "République - Beaux-Arts", "Buisson",
-        "Parc Jean-Baptiste Lebas", "Porte de Valenciennes",
-        "Boulevard de Metz", "Cimetière du Sud",
-        "Porte de Douai", "CHR Oscar Lambret",
-        "Porte des Postes", "Montebello",
-        "Calmette", "Centre Oscar Lambret",
-        "CHR B-Calmette", "Wattignies - Templemars",
-        "Ronchin - Fâches", "Hempempont",
-        "Tressin", "Villeneuve-d'Ascq Hôtel de Ville",
+        "Gare Lille Flandres",
+        "Rihour",
+        "République - Beaux-Arts",
+        "Buisson",
+        "Parc Jean-Baptiste Lebas",
+        "Porte de Valenciennes",
+        "Boulevard de Metz",
+        "Cimetière du Sud",
+        "Porte de Douai",
+        "CHR Oscar Lambret",
+        "Porte des Postes",
+        "Montebello",
+        "Calmette",
+        "Centre Oscar Lambret",
+        "CHR B-Calmette",
+        "Wattignies - Templemars",
+        "Ronchin - Fâches",
+        "Hempempont",
+        "Tressin",
+        "Villeneuve-d'Ascq Hôtel de Ville",
         "Pont de Bois"
       ]
     },
@@ -60,35 +92,322 @@
       "nom": "Tramway R",
       "couleur": "orange",
       "stations": [
-        "Gare Lille Flandres", "Gare Lille Europe",
-        "Saint-Maurice Pellevoisin", "Mons Sarts",
-        "Fort de Mons", "Les Prés - Edgard Pisani",
-        "Jean Jaurès", "Wasquehal - Hôtel de Ville",
-        "Pavé de Lille", "Croix - Mairie",
-        "Croix Centre", "Épeule - Montesquieu",
-        "Roubaix - Grand Place", "Roubaix - Eurotéléport",
+        "Gare Lille Flandres",
+        "Gare Lille Europe",
+        "Saint-Maurice Pellevoisin",
+        "Mons Sarts",
+        "Fort de Mons",
+        "Les Prés - Edgard Pisani",
+        "Jean Jaurès",
+        "Wasquehal - Hôtel de Ville",
+        "Pavé de Lille",
+        "Croix - Mairie",
+        "Croix Centre",
+        "Épeule - Montesquieu",
+        "Roubaix - Grand Place",
+        "Roubaix - Eurotéléport",
         "Roubaix - Charles de Gaulle",
-        "Alsace", "Gare Jean Lebas",
-        "Tourcoing - Sébastopol", "Tourcoing Centre",
-        "Colbert", "Pont de Neuville",
+        "Alsace",
+        "Gare Jean Lebas",
+        "Tourcoing - Sébastopol",
+        "Tourcoing Centre",
+        "Colbert",
+        "Pont de Neuville",
         "CH Dron"
       ]
     }
   },
   "connexions": [],
   "correspondances": [
-    {"station": "Gare Lille Flandres", "lignes": ["1", "2", "T", "R"], "temps": 120},
-    {"station": "Gare Lille Europe", "lignes": ["2", "R"], "temps": 120},
-    {"station": "Rihour", "lignes": ["1", "T"], "temps": 120},
-    {"station": "République - Beaux-Arts", "lignes": ["1", "T"], "temps": 120},
-    {"station": "Porte de Douai", "lignes": ["2", "T"], "temps": 120},
-    {"station": "Porte de Valenciennes", "lignes": ["2", "T"], "temps": 120},
-    {"station": "Porte des Postes", "lignes": ["1", "T"], "temps": 120},
-    {"station": "CHR B-Calmette", "lignes": ["1", "T"], "temps": 120},
-    {"station": "CHR Oscar Lambret", "lignes": ["1", "T"], "temps": 120},
-    {"station": "Pont de Bois", "lignes": ["1", "T"], "temps": 120},
-    {"station": "Villeneuve-d'Ascq - Hôtel de Ville", "lignes": ["1", "T"], "temps": 120}
+    {
+      "station": "Gare Lille Flandres",
+      "lignes": [
+        "1",
+        "2",
+        "T",
+        "R"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "Gare Lille Europe",
+      "lignes": [
+        "2",
+        "R"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "Rihour",
+      "lignes": [
+        "1",
+        "T"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "République - Beaux-Arts",
+      "lignes": [
+        "1",
+        "T"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "Porte de Douai",
+      "lignes": [
+        "2",
+        "T"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "Porte de Valenciennes",
+      "lignes": [
+        "2",
+        "T"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "Porte des Postes",
+      "lignes": [
+        "1",
+        "T"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "CHR B-Calmette",
+      "lignes": [
+        "1",
+        "T"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "CHR Oscar Lambret",
+      "lignes": [
+        "1",
+        "T"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "Pont de Bois",
+      "lignes": [
+        "1",
+        "T"
+      ],
+      "temps": 120
+    },
+    {
+      "station": "Villeneuve-d'Ascq - Hôtel de Ville",
+      "lignes": [
+        "1",
+        "T"
+      ],
+      "temps": 120
+    }
   ],
   "temps_moyen": 100,
-  "note": "Temps moyen en secondes entre deux stations consécutives. Les connexions entre stations consécutives d'une même ligne sont générées à partir du champ 'stations' de chaque ligne."
+  "note": "Temps moyen en secondes entre deux stations consécutives. Les connexions entre stations consécutives d'une même ligne sont générées à partir du champ 'stations' de chaque ligne.",
+  "stations_coordonnees": {
+    "Bourg": {
+      "latitude": 50.645604508935875,
+      "longitude": 2.985225812443883
+    },
+    "Caulier": {
+      "latitude": 50.63664701809564,
+      "longitude": 3.0873136555296403
+    },
+    "Croix Centre": {
+      "latitude": 50.67462305002474,
+      "longitude": 3.1461100849732087
+    },
+    "Fives": {
+      "latitude": 50.63294028492297,
+      "longitude": 3.090671977177809
+    },
+    "Fort de Mons": {
+      "latitude": 50.64205624226167,
+      "longitude": 3.119433792970293
+    },
+    "Gambetta": {
+      "latitude": 50.62638831877061,
+      "longitude": 3.0522498935108193
+    },
+    "Gare Lille Europe": {
+      "latitude": 50.63908266297712,
+      "longitude": 3.07570224675664
+    },
+    "Gare Lille Flandres": {
+      "latitude": 50.63728379719494,
+      "longitude": 3.070458473020544
+    },
+    "Jean Jaurès": {
+      "latitude": 50.65845869688682,
+      "longitude": 3.134970910463917
+    },
+    "Les Prés - Edgard Pisani": {
+      "latitude": 50.65028133825771,
+      "longitude": 3.1266506929187616
+    },
+    "Lille Grand Palais": {
+      "latitude": 50.62933383006578,
+      "longitude": 3.0751830059141634
+    },
+    "Mairie de Lille": {
+      "latitude": 50.632715961138565,
+      "longitude": 3.0708363684215643
+    },
+    "Maison des Enfants": {
+      "latitude": 50.64626487350519,
+      "longitude": 2.994828653000429
+    },
+    "Mons Sarts": {
+      "latitude": 50.64207676697557,
+      "longitude": 3.098968234442406
+    },
+    "Montebello": {
+      "latitude": 50.622066114996024,
+      "longitude": 3.045412895845025
+    },
+    "Pont de Bois": {
+      "latitude": 50.624251159792,
+      "longitude": 3.1277850425463685
+    },
+    "Porte d'Arras": {
+      "latitude": 50.61761329440191,
+      "longitude": 3.0622894268639413
+    },
+    "Porte de Douai": {
+      "latitude": 50.61823937588372,
+      "longitude": 3.072973804496914
+    },
+    "Porte de Valenciennes": {
+      "latitude": 50.62106383886011,
+      "longitude": 3.0788776739887047
+    },
+    "Porte des Postes": {
+      "latitude": 50.6183158590959,
+      "longitude": 3.0500834601495983
+    },
+    "Rihour": {
+      "latitude": 50.63551101486007,
+      "longitude": 3.0629287402171275
+    },
+    "Roubaix - Charles de Gaulle": {
+      "latitude": 50.6866524913816,
+      "longitude": 3.170027005999004
+    },
+    "République - Beaux-Arts": {
+      "latitude": 50.6315166612034,
+      "longitude": 3.060292276239119
+    },
+    "Saint-Maurice Pellevoisin": {
+      "latitude": 50.64244354121606,
+      "longitude": 3.088506047780682
+    },
+    "Triolo": {
+      "latitude": 50.616870777908915,
+      "longitude": 3.140648721689727
+    },
+    "Villeneuve-d'Ascq - Hôtel de Ville": {
+      "latitude": 50.61923801792596,
+      "longitude": 3.130606722534442
+    },
+    "Villeneuve-d'Ascq Hôtel de Ville": {
+      "latitude": 50.61923801792596,
+      "longitude": 3.130606722534442
+    },
+    "Wasquehal - Hôtel de Ville": {
+      "latitude": 50.669765120468746,
+      "longitude": 3.1312179857934845
+    },
+    "Wazemmes": {
+      "latitude": 50.62331503092182,
+      "longitude": 3.0516050492006506
+    },
+    "Épeule - Montesquieu": {
+      "latitude": 50.684022465019154,
+      "longitude": 3.1634645010010125
+    },
+    "4 Cantons - Stade Pierre Mauroy": {
+      "latitude": 50.60539029220763,
+      "longitude": 3.13894190897408
+    },
+    "Alsace": {
+      "latitude": 50.70038406296511,
+      "longitude": 3.1612235311893264
+    },
+    "CH Dron": {
+      "latitude": 50.74376856893761,
+      "longitude": 3.1804967302264413
+    },
+    "Cité Scientifique - Professeur Gabillard": {
+      "latitude": 50.611630224485886,
+      "longitude": 3.14241929049245
+    },
+    "Colbert": {
+      "latitude": 50.725829423022,
+      "longitude": 3.1566604429263
+    },
+    "Croix - Mairie": {
+      "latitude": 50.6790713809436,
+      "longitude": 3.1558667761443804
+    },
+    "Gare Jean Lebas": {
+      "latitude": 50.69567932769129,
+      "longitude": 3.1639752650161928
+    },
+    "Mairie de Lille - Lille Grand Palais": {
+      "latitude": 50.62933383006578,
+      "longitude": 3.0751830059141634
+    },
+    "Pavé de Lille": {
+      "latitude": 50.663991177517225,
+      "longitude": 3.1304834685127725
+    },
+    "Pont de Neuville": {
+      "latitude": 50.736855221648966,
+      "longitude": 3.170783166951315
+    },
+    "Tourcoing Centre": {
+      "latitude": 50.720856718289575,
+      "longitude": 3.1588410826967315
+    },
+    "Centre Oscar Lambret": {
+      "latitude": 50.613191336096,
+      "longitude": 3.0363833511937
+    },
+    "Roubaix - Grand Place": {
+      "latitude": 50.6918144583,
+      "longitude": 3.1747433103604
+    },
+    "Saint-Philibert": {
+      "latitude": 50.65212260528,
+      "longitude": 2.9742839481978
+    },
+    "Buisson": {
+      "latitude": 50.6564204840979,
+      "longitude": 3.088374035358276
+    },
+    "CHR Oscar Lambret": {
+      "latitude": 50.613191336096,
+      "longitude": 3.0363833511937
+    },
+    "Hellemmes": {
+      "latitude": 50.627087958739,
+      "longitude": 3.1090269892518
+    },
+    "Roubaix - Eurotéléport": {
+      "latitude": 50.690820029775,
+      "longitude": 3.1793395398336
+    },
+    "Tourcoing - Sébastopol": {
+      "latitude": 50.720942978257,
+      "longitude": 3.160003330615
+    }
+  }
 }
