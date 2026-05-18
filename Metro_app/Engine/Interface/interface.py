@@ -153,6 +153,7 @@ class Interface(QWidget):
         self.combo2.addItems(["A", "B", "C"])
         self.combo2.setCurrentIndex(0)
         self.combo2.setMinimumHeight(50)
+        self.combo2.setEnabled(False)  # disabled until a city is chosen
 
         # --- Combo 3 : Arrival ---
         self.combo3 = QComboBox()
@@ -160,6 +161,7 @@ class Interface(QWidget):
         self.combo3.addItems(["A", "B", "C"])
         self.combo3.setCurrentIndex(0)
         self.combo3.setMinimumHeight(50)
+        self.combo3.setEnabled(False)  # disabled until a city is chosen
 
         # --- Labels ---
         label_city = QLabel("Find Your City")
@@ -263,6 +265,8 @@ class Interface(QWidget):
         )
         self.combo2.addItems(station_names)
         self.combo3.addItems(station_names)
+        self.combo2.setEnabled(True)   # city is loaded, user can now pick stations
+        self.combo3.setEnabled(True)   # city is loaded, user can now pick stations
  
     def on_calculate(self):
         """Run Dijkstra and open the BST-style itinerary in a popup window."""
