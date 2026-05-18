@@ -2,11 +2,10 @@ import sys
 
 from PyQt5.QtWidgets import (
     QWidget, QComboBox, QVBoxLayout, QHBoxLayout,
-    QGroupBox, QLabel, QPushButton, QApplication,
-    QPlainTextEdit, QDialog
+    QGroupBox, QLabel, QPushButton, QPlainTextEdit
 )
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtCore import Qt, QUrl
+from PyQt5.QtCore import QUrl
 from PyQt5.QtGui import QFont
 
 from pathlib import Path
@@ -19,7 +18,7 @@ if PROJECT_ROOT not in sys.path:
 from visualize_metro import MetroMapVisualizer, get_available_cities
 from Engine.data_loader import load_city_into_graph
 from Engine.algorithms import dijkstra
-from Engine.itinerary import create_itinerary_steps, format_time
+from Engine.itinerary import format_time
 
 
 # ======================================== HELPERS ========================================
@@ -36,7 +35,7 @@ def _format_itinerary_bst(steps, total_time) -> str:
     """
     Render the itinerary in the same visual style as the BST screenshot:
  
-        Action  | StationName <- annotation
+        Action  | StationName annotation
         Action  | StationName
         ...
         Estimated time: X min Y sec
@@ -63,13 +62,13 @@ def _format_itinerary_bst(steps, total_time) -> str:
         # build annotation (shown after a "<-")
         if action == "board":
             label      = "Board"
-            annotation = f"line {line_id}" if line_id else "← start"
+            annotation = f"line {line_id} | start"
         elif action == "transfer":
             label      = "Transfer"
-            annotation = f"← take line {line_id}" if line_id else "← transfer"
+            annotation = f"← take line {line_id}" 
         elif action == "alight":
             label      = "Alight"
-            annotation = f"line {line_id}" if line_id else "← end"
+            annotation = f"line {line_id} | end" 
         else:                           # "continue"
             label      = "Continue"
             annotation = ""
@@ -77,7 +76,7 @@ def _format_itinerary_bst(steps, total_time) -> str:
         left = f"{label:<{ACTION_W}}"
  
         if annotation:
-            lines_out.append(f"{left}| {station_name} <- {annotation}")
+            lines_out.append(f"{left}| {station_name} {annotation}")
         else:
             lines_out.append(f"{left}| {station_name}")
  
@@ -85,42 +84,7 @@ def _format_itinerary_bst(steps, total_time) -> str:
     lines_out.append(f"Estimated time : {format_time(total_time)}")
     return "\n".join(lines_out)
  
- 
-# ======================================= VISUALIZER =======================================
- 
-class ItineraryPopup(QDialog):
-    """
-    Modal popup that shows the itinerary in BST style.
-    Stays on top of the main window; closed with the Close button.
-    """
-    def __init__(self, text: str, dep: str, arr: str, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle(f"Route  {dep}  →  {arr}")
-        self.setMinimumSize(520, 420)
-        self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint)
- 
-        # --- text area ---
-        self.text_box = QPlainTextEdit()
-        self.text_box.setReadOnly(True)
-        self.text_box.setFont(QFont("Courier New", 13))
-        self.text_box.setPlainText(text)
- 
-        # --- close button ---
-        btn_close = QPushButton("Close")
-        btn_close.setMinimumHeight(50)
-        btn_close.clicked.connect(self.accept)
- 
-        # --- layout ---
-        layout = QVBoxLayout()
-        layout.setSpacing(16)
-        layout.addWidget(QLabel(f"<b>{dep}</b>  →  <b>{arr}</b>"))
-        layout.addWidget(self.text_box)
-        layout.addWidget(btn_close)
-        self.setLayout(layout)
- 
-        # inherit the parent's stylesheet so it looks consistent
-        if parent is not None:
-            self.setStyleSheet(parent.styleSheet())
+
 
 # ======================================= INTERFACE =======================================
 

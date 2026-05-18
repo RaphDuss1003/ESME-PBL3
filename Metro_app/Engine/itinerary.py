@@ -1,3 +1,21 @@
+"""
+itinerary.py — Itinerary formatting and display utilities.
+ 
+Most functions in this file (create_itinerary_steps, normalize_step,
+split_station_and_line, is_valid_steps, get_itinerary_as_text, display_itinerary)
+are NOT called by the GUI (interface.py). They were used in the console version (main.py) and are kept here for 
+reference and potential reuse, but they are not part of the GUI itinerary display logic.
+ 
+The GUI uses _format_itinerary_bst() defined in interface.py, which formats
+the steps produced by dijkstra() directly into a BST-style monospace layout (like in pbl2).
+ 
+These functions are kept because:
+- display_itinerary() is used by the console mode (main.py).
+- They are well-documented building blocks referenced in the project report.
+- They could be reused if a different display format is needed in the future.
+
+"""
+
 def format_time(seconds):
     if seconds is None:
         return "unknown time"
