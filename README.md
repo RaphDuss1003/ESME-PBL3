@@ -43,19 +43,19 @@ It runs fully offline. The network data lives in JSON files, and the engine is b
 
 We split the work into separate modules so each part of the team could work independently:
 
-- **main.py**: Entry point. Launches the app and wires everything together.
+- **main.py**: Launches the app, that's it.
 
-- **graph.py**: Custom weighted graph using an adjacency list. Each node is `"StationName|LineID"` so the same physical station on two different lines is two distinct nodes, connected by a transfer edge.
+- **graph.py**: Our graph, implemented as an adjacency list. Each node is `"StationName|LineID"` so the same station on two different lines is two separate nodes connected by a transfer edge. We added dunder methods (`__contains__`, `__iter__`, `__getitem__`) so the algorithms can do things like `node in graph` or `graph[node]` without extra boilerplate. We went with an adjacency list instead of a matrix because metro networks don't have that many connections per station, so the matrix would mostly be zeros.
 
-- **data_loader.py**: Parses the JSON network files, builds the graph, and handles bad inputs gracefully (missing files, malformed data).
+- **data_loader.py**: Reads the JSON files, builds the graph, and prints an error if a file is missing or broken instead of just crashing.
 
-- **algorithms.py**: The core of the engine. Implements BFS, DFS and Dijkstra.
+- **algorithms.py**: BFS, DFS and Dijkstra.
 
-- **itinerary.py**: Formats the algorithm output into human-readable instructions (board / continue through / transfer / alight).
+- **itinerary.py**: Takes the steps from Dijkstra and turns them into something readable (board / continue / transfer / alight). Also covers edge cases like already being at the destination.
 
-- **visualize_metro.py**: Builds an interactive HTML map with Folium. Lines are drawn in their real colors, stations are clickable markers.
+- **visualize_metro.py**: Draws an interactive map with Folium, lines in their real colors, stations you can click on.
 
-- **Interface/interface.py + style.qss**: PyQt5 graphical interface. Dropdowns for city, departure and arrival on the left, interactive map on the right.
+- **Interface/interface.py + style.qss**: The PyQt5 interface. City, departure and arrival on the left with the itinerary below, map on the right.
 
 
 ## 🗺️ Supported Cities
@@ -93,4 +93,4 @@ The main one. Always expands the cheapest unvisited node using a min-heap. Switc
 - **Walking transfers**: handle transfers between nearby stations that aren't at the same stop.
 - **Better error handling in the UI**: clearer messages when a station doesn't exist or no route is found.
 
-*Advanced Algorithms 3 — PBL3, 2025-2026*
+*AAP3 2025-2026*
