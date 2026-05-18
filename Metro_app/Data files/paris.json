@@ -328,9 +328,9 @@
       "stations": [
         "Boulogne - Pont de Saint-Cloud",
         "Boulogne - Jean Jaurès",
-        "Porte d'Auteuil",
-        "Michel-Ange - Auteuil",
-        "Église d'Auteuil",
+        "Michel-Ange - Molitor",
+        "Chardon Lagache",
+        "Mirabeau",
         "Javel - André Citroën",
         "Charles Michels",
         "Avenue Émile Zola",
@@ -345,10 +345,7 @@
         "Maubert - Mutualité",
         "Cardinal Lemoine",
         "Jussieu",
-        "Gare d'Austerlitz",
-        "Michel-Ange - Molitor",
-        "Chardon Lagache",
-        "Mirabeau"
+        "Gare d'Austerlitz"
       ]
     },
     "11": {
@@ -367,13 +364,7 @@
         "Place des Fêtes",
         "Télégraphe",
         "Porte des Lilas",
-        "Mairie des Lilas",
-        "Serge Gainsbourg",
-        "Romainville - Carnot",
-        "Montreuil - Hôpital",
-        "La Dhuys",
-        "Coteaux Beauclair",
-        "Rosny - Bois-Perrier"
+        "Mairie des Lilas"
       ]
     },
     "12": {
@@ -417,13 +408,6 @@
       "nom": "Ligne 13",
       "couleur": "bleu clair",
       "stations": [
-        "Les Courtilles",
-        "Les Agnettes",
-        "Gabriel Péri",
-        "Mairie de Clichy",
-        "Porte de Clichy",
-        "Brochant",
-        "La Fourche",
         "Saint-Denis - Université",
         "Basilique de Saint-Denis",
         "Saint-Denis - Porte de Paris",
@@ -432,6 +416,7 @@
         "Garibaldi",
         "Porte de Saint-Ouen",
         "Guy Môquet",
+        "La Fourche",
         "Place de Clichy",
         "Liège",
         "Saint-Lazare",
@@ -470,7 +455,7 @@
         "Olympiades",
         "Maison Blanche",
         "Hôpital Bicêtre",
-        "Villejuif - Gustave Roussy",
+        "Villejuif - Institut Gustave Roussy",
         "L'Haÿ-les-Roses",
         "Chevilly-Larue",
         "Thiais - Orly",
@@ -942,6 +927,10 @@
       "latitude": 48.884392717043454,
       "longitude": 2.338394635220906
     },
+    "Aimé Césaire": {
+      "latitude": 48.90808243782026,
+      "longitude": 2.377741481106109
+    },
     "Alexandre Dumas": {
       "latitude": 48.85624467748922,
       "longitude": 2.3947127337554774
@@ -1194,6 +1183,10 @@
       "latitude": 48.869193344184296,
       "longitude": 2.3802889829271927
     },
+    "Pointe du Lac": {
+      "latitude": 48.768715125044686,
+      "longitude": 2.464564993081967
+    },
     "Crimée": {
       "latitude": 48.89088575798087,
       "longitude": 2.376935736982379
@@ -1322,6 +1315,10 @@
       "latitude": 48.89149574848938,
       "longitude": 2.4031141548943955
     },
+    "Hôpital Bicêtre": {
+      "latitude": 48.80981003194872,
+      "longitude": 2.349750100298353
+    },
     "Hôtel de Ville": {
       "latitude": 48.857352404237716,
       "longitude": 2.3520676701390992
@@ -1449,6 +1446,10 @@
     "Madeleine": {
       "latitude": 48.87054467576818,
       "longitude": 2.3258100487932767
+    },
+    "Mairie d'Aubervilliers": {
+      "latitude": 48.913710545549606,
+      "longitude": 2.380735606395095
     },
     "Mairie d'Issy": {
       "latitude": 48.824164424939646,
@@ -2098,7 +2099,7 @@
       "latitude": 48.85523625280238,
       "longitude": 2.360956490023829
     },
-    "Thiais": {
+    "Thiais - Orly": {
       "latitude": 48.746978700693774,
       "longitude": 2.372839696785623
     }
