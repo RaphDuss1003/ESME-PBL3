@@ -182,7 +182,10 @@ def is_connected(graph):
 # ======================================== TRANSFER STATIONS ========================================
 
 def find_transfer_stations(graph):
-    """Identify stations that serve multiple lines, which are potential transfer points."""
+    """
+    Identifies stations that serve multiple lines, which are potential transfer points.
+    We don't use it because in our itinerary we detect transfers per-route inside the Dijkstra method.
+    """
     transfers = {}
 
     for station in graph.get_all_nodes():
