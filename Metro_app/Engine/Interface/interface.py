@@ -150,7 +150,6 @@ class Interface(QWidget):
         # --- Combo 2 : Departure ---
         self.combo2 = QComboBox()
         self.combo2.addItem("Select departure")  # placeholder
-        self.combo2.addItems(["A", "B", "C"])
         self.combo2.setCurrentIndex(0)
         self.combo2.setMinimumHeight(50)
         self.combo2.setEnabled(False)  # disabled until a city is chosen
@@ -158,7 +157,6 @@ class Interface(QWidget):
         # --- Combo 3 : Arrival ---
         self.combo3 = QComboBox()
         self.combo3.addItem("Select arrival")  # placeholder
-        self.combo3.addItems(["A", "B", "C"])
         self.combo3.setCurrentIndex(0)
         self.combo3.setMinimumHeight(50)
         self.combo3.setEnabled(False)  # disabled until a city is chosen
@@ -178,30 +176,38 @@ class Interface(QWidget):
         self.btn_calc.setMinimumHeight(60)
         self.btn_calc.clicked.connect(self.on_calculate)
 
+        # --- Itinerary display (scrollable, monospace, BST style) ---
+        self.itinerary_box = QPlainTextEdit()
+        self.itinerary_box.setReadOnly(True)
+        self.itinerary_box.setFont(QFont("Courier New", 12, QFont.Normal)) # QFont.Normal overrides the bold from the QSS stylesheet
+        self.itinerary_box.setStyleSheet("font-weight: normal;")       
+        self.itinerary_box.setPlaceholderText("Itinerary will appear here...")
+        # no fixed height: it will stretch to fill available space between btn_calc and btn_exit
+
         # --- Exit Button ---
         self.btn_exit = QPushButton("Exit")
         self.btn_exit.setMinimumHeight(60)
         self.btn_exit.clicked.connect(self.close)
 
         # --- Left Layout ---
+        # Top section: city / departure / arrival / calculate — aligned to top
+        top_layout = QVBoxLayout()
+        top_layout.setSpacing(18)
+        top_layout.addWidget(label_city)
+        top_layout.addWidget(self.combo1)
+        top_layout.addWidget(label_dep)
+        top_layout.addWidget(self.combo2)
+        top_layout.addWidget(label_arr)
+        top_layout.addWidget(self.combo3)
+        top_layout.addSpacing(10)
+        top_layout.addWidget(self.btn_calc)
+
+        # Full left layout: top section + stretching itinerary box + pinned exit button
         left_layout = QVBoxLayout()
-        left_layout.setAlignment(Qt.AlignTop)
-        left_layout.setSpacing(18)
- 
-        left_layout.addWidget(label_city)
-        left_layout.addWidget(self.combo1)
- 
-        left_layout.addWidget(label_dep)
-        left_layout.addWidget(self.combo2)
- 
-        left_layout.addWidget(label_arr)
-        left_layout.addWidget(self.combo3)
- 
-        left_layout.addSpacing(10)
-        left_layout.addWidget(self.btn_calc)
- 
-        left_layout.addSpacing(6)
-        left_layout.addWidget(self.btn_exit)
+        left_layout.setSpacing(12)
+        left_layout.addLayout(top_layout)         # controls at the top
+        left_layout.addWidget(self.itinerary_box) # stretches to fill remaining space
+        left_layout.addWidget(self.btn_exit)      # pinned at the bottom
  
         left_group = QGroupBox("Your Destination")
         left_group.setMaximumWidth(460)
@@ -269,46 +275,44 @@ class Interface(QWidget):
         self.combo3.setEnabled(True)   # city is loaded, user can now pick stations
  
     def on_calculate(self):
-        """Run Dijkstra and open the BST-style itinerary in a popup window."""
- 
-        def show_popup(text: str):
-            popup = ItineraryPopup(text, dep_name, arr_name, parent=self)
-            popup.exec_()
- 
+        """Run Dijkstra and display the BST-style itinerary in the inline text box."""
+
+        def show_error(text: str):
+            self.itinerary_box.setPlainText(text)  # errors go in the same box, no popup
+
         # --- guards ---
         if self._graph is None:
-            dep_name = arr_name = "?"
-            show_popup("Please select a city first.")
+            show_error("Please select a city first.")
             return
- 
+
         dep_name = self.combo2.currentText()
         arr_name = self.combo3.currentText()
- 
+
         if dep_name == "Select departure" or arr_name == "Select arrival":
-            show_popup("Please select both a departure and an arrival station.")
+            show_error("Please select both a departure and an arrival station.")
             return
- 
+
         if dep_name == arr_name:
-            show_popup("You are already at your destination!")
+            show_error("You are already at your destination!")
             return
- 
+
         start_node = _resolve_node(dep_name, self._graph)
         end_node   = _resolve_node(arr_name, self._graph)
- 
+
         if start_node is None or end_node is None:
-            show_popup("Station not found in graph.")
+            show_error("Station not found in graph.")
             return
- 
+
         # --- compute ---
         total_time, steps = dijkstra(self._graph, start_node, end_node)
- 
+
         if steps is None:
-            show_popup("No route found between these two stations.")
+            show_error("No route found between these two stations.")
             return
- 
-        # --- open popup --- 
+
+        # --- display inline in the scrollable text box ---
         text = _format_itinerary_bst(steps, total_time)
-        show_popup(text)
+        self.itinerary_box.setPlainText(text)
  
     def _load_city_map(self, city_code: str):
         data_path = Path(__file__).resolve().parents[2] / "Data files" / f"{city_code}.json"
@@ -324,11 +328,3 @@ class Interface(QWidget):
         except Exception as exc:
             self.web_view.setHtml(f"<h2>Error loading map:</h2><pre>{exc}</pre>")
 
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-
-    window = Interface()
-    window.show()
-
-    sys.exit(app.exec_())

@@ -184,7 +184,3 @@ def test_itinerary():
 
     test_time = 570
     display_itinerary(test_steps, test_time)
-
-
-if __name__ == "__main__":
-    test_itinerary()
