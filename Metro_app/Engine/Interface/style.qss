@@ -55,16 +55,6 @@ QComboBox QAbstractItemView {
     selection-color: white;
 }
 
-/* TEXT AREA (grand espace à droite) */
-QPlainTextEdit {
-    background-color: #fafafa;
-    border: 3px solid #d0d0d0;
-    border-radius: 20px;
-    padding: 20px;
-    font-size: 20px;
-    color: black;
-}
-
 /* EXIT BUTTON */
 QPushButton {
     background-color: rgba(59,130,246,0.9);

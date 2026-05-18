@@ -129,7 +129,7 @@ class Interface(QWidget):
         super().__init__()
 
         self.setWindowTitle("Maps")
-        self.setFixedSize(1400, 900)
+        self.setMinimumSize(1400, 900)
 
         # internal state
         self._graph     = None   # loaded Graph object
