@@ -1,7 +1,7 @@
 import json
 import os
 
-from graph import Graph
+from Engine.graph import Graph
 
 # ===================================================== HELPERS =====================================================
 
@@ -182,7 +182,7 @@ def load_city_into_graph(city_name, data_dir="data"):
         return None, None
     graph = build_graph(data)
     return graph, data
-    
+
 
 # ===================================================== DISPLAY =====================================================
 
