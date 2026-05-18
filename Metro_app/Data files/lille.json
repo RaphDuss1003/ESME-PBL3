@@ -10,9 +10,8 @@
         "Triolo",
         "Villeneuve-d'Ascq - Hôtel de Ville",
         "Pont de Bois",
-        "Lezennes",
-        "Hellemmes",
-        "Mairie de Lille - Lille Grand Palais",
+        "Square Flandres",
+        "Mairie d'Hellemmes",
         "Fives",
         "Caulier",
         "Gare Lille Flandres",
@@ -32,8 +31,17 @@
         "Saint-Philibert",
         "Bourg",
         "Maison des Enfants",
-        "Porte de Douai",
+        "Mitterie",
+        "Pont Supérieur",
+        "Lomme - Lambersart",
+        "Canteleu",
+        "Bois Blancs",
+        "Port de Lille",
+        "Cormontaigne",
+        "Montebello",
+        "Porte des Postes",
         "Porte d'Arras",
+        "Porte de Douai",
         "Porte de Valenciennes",
         "Lille Grand Palais",
         "Mairie de Lille",
@@ -41,51 +49,57 @@
         "Gare Lille Europe",
         "Saint-Maurice Pellevoisin",
         "Mons Sarts",
+        "Mairie de Mons",
         "Fort de Mons",
         "Les Prés - Edgard Pisani",
         "Jean Jaurès",
-        "Wasquehal - Hôtel de Ville",
         "Pavé de Lille",
-        "Croix - Mairie",
+        "Wasquehal - Hôtel de Ville",
         "Croix Centre",
+        "Croix - Mairie",
         "Épeule - Montesquieu",
-        "Roubaix - Grand Place",
-        "Roubaix - Eurotéléport",
         "Roubaix - Charles de Gaulle",
-        "Alsace",
+        "Roubaix - Eurotéléport",
+        "Roubaix - Grand Place",
         "Gare Jean Lebas",
+        "Alsace",
+        "Mercure",
+        "Carliers",
         "Tourcoing - Sébastopol",
         "Tourcoing Centre",
         "Colbert",
+        "Phalempins",
         "Pont de Neuville",
+        "Bourgogne",
         "CH Dron"
       ]
     },
     "T": {
       "nom": "Tramway T",
-      "couleur": "vert",
+      "couleur": "green",
       "stations": [
         "Gare Lille Flandres",
-        "Rihour",
-        "République - Beaux-Arts",
+        "Gare Lille Europe",
+        "Romarin",
+        "Botanique",
+        "Saint Maur",
         "Buisson",
-        "Parc Jean-Baptiste Lebas",
-        "Porte de Valenciennes",
-        "Boulevard de Metz",
-        "Cimetière du Sud",
-        "Porte de Douai",
-        "CHR Oscar Lambret",
-        "Porte des Postes",
-        "Montebello",
-        "Calmette",
-        "Centre Oscar Lambret",
-        "CHR B-Calmette",
-        "Wattignies - Templemars",
-        "Ronchin - Fâches",
-        "Hempempont",
-        "Tressin",
-        "Villeneuve-d'Ascq Hôtel de Ville",
-        "Pont de Bois"
+        "Brossolette",
+        "Clemenceau Hippodrome",
+        "Croisé Laroche",
+        "Foch",
+        "Le Quesne",
+        "Cerisaie",
+        "Château Rouge",
+        "Cartelot",
+        "Grand Cottignies",
+        "Triez",
+        "Trois Suisses",
+        "Faidherbe",
+        "Ma Campagne",
+        "Pont Hydraulique",
+        "Victoire",
+        "Tourcoing Centre"
       ]
     },
     "R": {
@@ -94,26 +108,27 @@
       "stations": [
         "Gare Lille Flandres",
         "Gare Lille Europe",
-        "Saint-Maurice Pellevoisin",
-        "Mons Sarts",
-        "Fort de Mons",
-        "Les Prés - Edgard Pisani",
-        "Jean Jaurès",
-        "Wasquehal - Hôtel de Ville",
-        "Pavé de Lille",
-        "Croix - Mairie",
-        "Croix Centre",
-        "Épeule - Montesquieu",
-        "Roubaix - Grand Place",
-        "Roubaix - Eurotéléport",
-        "Roubaix - Charles de Gaulle",
-        "Alsace",
-        "Gare Jean Lebas",
-        "Tourcoing - Sébastopol",
-        "Tourcoing Centre",
-        "Colbert",
-        "Pont de Neuville",
-        "CH Dron"
+        "Romarin",
+        "Botanique",
+        "Saint Maur",
+        "Buisson",
+        "Brossolette",
+        "Clemenceau Hippodrome",
+        "Croisé Laroche",
+        "Acacias",
+        "Pont de Wasquehal",
+        "La Terrasse",
+        "Wasquehal Pavé de Lille",
+        "Le Sart",
+        "Planche Epinoy",
+        "La Marque",
+        "Villa Cavrois",
+        "Bol d'air",
+        "Parc Barbieux",
+        "Hopital Victor Provo",
+        "Jean Moulin",
+        "Alfred Mongy",
+        "Roubaix"
       ]
     }
   },
@@ -121,92 +136,52 @@
   "correspondances": [
     {
       "station": "Gare Lille Flandres",
-      "lignes": [
-        "1",
-        "2",
-        "T",
-        "R"
-      ],
+      "lignes": ["1", "2", "T", "R"],
       "temps": 120
     },
     {
       "station": "Gare Lille Europe",
-      "lignes": [
-        "2",
-        "R"
-      ],
-      "temps": 120
-    },
-    {
-      "station": "Rihour",
-      "lignes": [
-        "1",
-        "T"
-      ],
+      "lignes": ["2", "R"],
       "temps": 120
     },
     {
       "station": "République - Beaux-Arts",
-      "lignes": [
-        "1",
-        "T"
-      ],
+      "lignes": ["1", "T"],
       "temps": 120
     },
     {
       "station": "Porte de Douai",
-      "lignes": [
-        "2",
-        "T"
-      ],
+      "lignes": ["2", "T"],
       "temps": 120
     },
     {
       "station": "Porte de Valenciennes",
-      "lignes": [
-        "2",
-        "T"
-      ],
+      "lignes": ["2", "T"],
       "temps": 120
     },
     {
       "station": "Porte des Postes",
-      "lignes": [
-        "1",
-        "T"
-      ],
+      "lignes": ["1", "2", "T"],
       "temps": 120
     },
     {
       "station": "CHR B-Calmette",
-      "lignes": [
-        "1",
-        "T"
-      ],
+      "lignes": ["1", "T"],
       "temps": 120
     },
     {
       "station": "CHR Oscar Lambret",
-      "lignes": [
-        "1",
-        "T"
-      ],
+      "lignes": ["1", "T"],
       "temps": 120
     },
     {
       "station": "Pont de Bois",
-      "lignes": [
-        "1",
-        "T"
-      ],
+      "lignes": ["1", "T"],
       "temps": 120
     },
     {
       "station": "Villeneuve-d'Ascq - Hôtel de Ville",
-      "lignes": [
-        "1",
-        "T"
-      ],
+      "lignes": ["1", "T"],
       "temps": 120
     }
   ],
@@ -397,9 +372,9 @@
       "latitude": 50.613191336096,
       "longitude": 3.0363833511937
     },
-    "Hellemmes": {
-      "latitude": 50.627087958739,
-      "longitude": 3.1090269892518
+    "Square Flandres": {
+      "latitude": 50.625367,
+      "longitude": 3.116056
     },
     "Roubaix - Eurotéléport": {
       "latitude": 50.690820029775,
@@ -408,6 +383,190 @@
     "Tourcoing - Sébastopol": {
       "latitude": 50.720942978257,
       "longitude": 3.160003330615
+    },
+    "Mairie d'Hellemmes": {
+      "latitude": 50.627065,
+      "longitude": 3.10905
+    },
+    "CHR B-Calmette": {
+      "latitude": 50.6080555,
+      "longitude": 3.0388889
+    },
+    "Romarin": {
+      "latitude": 50.6452778,
+      "longitude": 3.0750000
+    },
+    "Botanique": {
+      "latitude": 50.6488889,
+      "longitude": 3.0788889
+    },
+    "Saint Maur": {
+      "latitude": 50.6516667,
+      "longitude": 3.0819444
+    },
+    "Brossolette": {
+      "latitude": 50.6602778,
+      "longitude": 3.0941667
+    },
+    "Clemenceau Hippodrome": {
+      "latitude": 50.6619444,
+      "longitude": 3.0963889
+    },
+    "Croisé Laroche": {
+      "latitude": 50.6647222,
+      "longitude": 3.1022222
+    },
+    "Foch": {
+      "latitude": 50.6663889,
+      "longitude": 3.1036111
+    },
+    "Le Quesne": {
+      "latitude": 50.6733333,
+      "longitude": 3.1066667
+    },
+    "Cerisaie": {
+      "latitude": 50.6772222,
+      "longitude": 3.1113889
+    },
+    "Château Rouge": {
+      "latitude": 50.6797222,
+      "longitude": 3.1144444
+    },
+    "Cartelot": {
+      "latitude": 50.6836111,
+      "longitude": 3.1194444
+    },
+    "Grand Cottignies": {
+      "latitude": 50.6869444,
+      "longitude": 3.1238889
+    },
+    "Triez": {
+      "latitude": 50.6925000,
+      "longitude": 3.1311111
+    },
+    "Trois Suisses": {
+      "latitude": 50.6988889,
+      "longitude": 3.1386111
+    },
+    "Faidherbe": {
+      "latitude": 50.7036111,
+      "longitude": 3.1427778
+    },
+    "Ma Campagne": {
+      "latitude": 50.7097222,
+      "longitude": 3.1527778
+    },
+    "Pont Hydraulique": {
+      "latitude": 50.7125000,
+      "longitude": 3.1561111
+    },
+    "Victoire": {
+      "latitude": 50.7177778,
+      "longitude": 3.1569444
+    },
+    "Acacias": {
+      "latitude": 50.6650000,
+      "longitude": 3.1100000
+    },
+    "Pont de Wasquehal": {
+      "latitude": 50.6644444,
+      "longitude": 3.1175000
+    },
+    "La Terrasse": {
+      "latitude": 50.6638889,
+      "longitude": 3.1261111
+    },
+    "Wasquehal Pavé de Lille": {
+      "latitude": 50.6636111,
+      "longitude": 3.1302778
+    },
+    "Le Sart": {
+      "latitude": 50.6633333,
+      "longitude": 3.1388889
+    },
+    "Planche Epinoy": {
+      "latitude": 50.6644444,
+      "longitude": 3.1458333
+    },
+    "La Marque": {
+      "latitude": 50.6663889,
+      "longitude": 3.1494444
+    },
+    "Villa Cavrois": {
+      "latitude": 50.6688889,
+      "longitude": 3.1538889
+    },
+    "Bol d'air": {
+      "latitude": 50.6725000,
+      "longitude": 3.1563889
+    },
+    "Parc Barbieux": {
+      "latitude": 50.6777778,
+      "longitude": 3.1619444
+    },
+    "Hopital Victor Provo": {
+      "latitude": 50.6811111,
+      "longitude": 3.1675000
+    },
+    "Jean Moulin": {
+      "latitude": 50.6850000,
+      "longitude": 3.1722222
+    },
+    "Alfred Mongy": {
+      "latitude": 50.6877778,
+      "longitude": 3.1752778
+    },
+    "Roubaix": {
+      "latitude": 50.6911111,
+      "longitude": 3.1791667
+    },
+    "Mitterie": {
+      "latitude": 50.646944,
+      "longitude": 3.007778
+    },
+    "Pont Supérieur": {
+      "latitude": 50.644722,
+      "longitude": 3.013889
+    },
+    "Lomme - Lambersart": {
+      "latitude": 50.640833,
+      "longitude": 3.018611
+    },
+    "Canteleu": {
+      "latitude": 50.637222,
+      "longitude": 3.024444
+    },
+    "Bois Blancs": {
+      "latitude": 50.634444,
+      "longitude": 3.030556
+    },
+    "Port de Lille": {
+      "latitude": 50.630278,
+      "longitude": 3.035278
+    },
+    "Cormontaigne": {
+      "latitude": 50.626111,
+      "longitude": 3.040278
+    },
+    "Mairie de Mons": {
+      "latitude": 50.642222,
+      "longitude": 3.109722
+    },
+    "Mercure": {
+      "latitude": 50.705000,
+      "longitude": 3.160556
+    },
+    "Carliers": {
+      "latitude": 50.710833,
+      "longitude": 3.160000
+    },
+    "Phalempins": {
+      "latitude": 50.732500,
+      "longitude": 3.157778
+    },
+    "Bourgogne": {
+      "latitude": 50.739444,
+      "longitude": 3.179722
     }
   }
 }
