@@ -52,7 +52,7 @@
     },
     "D": {
       "nom": "Métro D",
-      "couleur": "vert",
+      "couleur": "green",
       "stations": [
         "Gare de Vaise",
         "Valmy",
@@ -73,7 +73,7 @@
     },
     "T1": {
       "nom": "Tramway T1",
-      "couleur": "bleu",
+      "couleur": "jaune-vert",
       "stations": [
         "IUT - Feyssine",
         "Croix-Luizet",
@@ -106,7 +106,7 @@
     },
     "T2": {
       "nom": "Tramway T2",
-      "couleur": "violet",
+      "couleur": "magenta",
       "stations": [
         "Hôtel de Région - Montrochet",
         "Sainte-Blandine",
@@ -136,7 +136,7 @@
     },
     "T3": {
       "nom": "Tramway T3",
-      "couleur": "vert clair",
+      "couleur": "vert foncé",
       "stations": [
         "Gare Part-Dieu - Villette",
         "Dauphiné - Lacassagne",
@@ -153,7 +153,7 @@
     },
     "T4": {
       "nom": "Tramway T4",
-      "couleur": "fuchsia",
+      "couleur": "jaune",
       "stations": [
         "La Doua - Gaston Berger",
         "Université Lyon 1",
@@ -188,7 +188,7 @@
     },
     "T5": {
       "nom": "Tramway T5",
-      "couleur": "vert kaki",
+      "couleur": "olive",
       "stations": [
         "Grange Blanche",
         "Desgenettes",
@@ -203,7 +203,7 @@
     },
     "T6": {
       "nom": "Tramway T6",
-      "couleur": "vert pomme",
+      "couleur": "marron",
       "stations": [
         "Debourg",
         "Challemel-Roannais - Artillerie",
@@ -221,7 +221,7 @@
     },
     "T7": {
       "nom": "Tramway T7",
-      "couleur": "bleu clair",
+      "couleur": "ocre",
       "stations": [
         "Vaulx-en-Velin - La Soie",
         "Décines - Centre",
