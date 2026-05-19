@@ -31,6 +31,7 @@ It runs fully offline. The network data lives in JSON files, and the engine is b
 3. **Install Dependencies:**
    ```
    pip install PyQt5 PyQtWebEngine folium
+   # in case it doesn't work, copy and paste this : conda install -c conda-forge folium
    ```
 
 4. **Run the app:**
