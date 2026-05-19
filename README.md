@@ -91,6 +91,6 @@ The main one. Always expands the cheapest unvisited node using a min-heap. Switc
 
 - **Disruption management**: mark a station or line as closed and reroute automatically.
 - **Walking transfers**: handle transfers between nearby stations that aren't at the same stop.
-- **Better error handling in the UI**: clearer messages when a station doesn't exist or no route is found.
+- **Route highlighting on the map**: After calculating a route, highlight the selected journey in red directly on the map.
 
 *AAP3 2025-2026*
